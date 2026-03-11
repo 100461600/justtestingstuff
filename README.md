@@ -22,14 +22,16 @@ This project aims to predict whether a bank client will subscribe to a term depo
 ## 📂 Repository Structure
 
 ```
-├── notebook_main.ipynb          # EDA, preprocessing, HPO, model selection
-├── notebook_predictions.ipynb   # Load final model & generate competition predictions
-├── mystreamlit.py               # Streamlit deployment app
-├── modelo_final.joblib          # Saved final model pipeline
-├── predicciones.csv             # Predictions on competition dataset
+P1_AA_Mohammadali_Alessandro/
 ├── data/
-│   ├── bank_00.pkl              # Main dataset (training & evaluation)
-│   └── bank_competition_00.pkl  # Competition dataset (no target variable)
+│   ├── bank_00.pkl                  # Main dataset (training & evaluation)
+│   └── bank_competition.pkl         # Competition dataset (no target variable)
+├── notebooks/
+│   ├── 01_EDA.ipynb                 # EDA, preprocessing, HPO, model selection
+│   └── 02_predictions.ipynb         # Load final model & generate competition predictions (TO DO)
+├── mystreamlit.py                   # Streamlit deployment app (TO DO)
+├── modelo_final.joblib              # Saved final model pipeline (TO DO)
+├── predicciones.csv                 # Predictions on competition dataset (TO DO)
 └── README.md
 ```
 
@@ -91,3 +93,45 @@ The dataset contains client demographic, financial, and campaign interaction var
 | `previous` | Contacts before this campaign |
 | `poutcome` | Previous campaign outcome |
 | `deposit` | **Target:** subscribed to deposit? |
+
+---
+
+## 📓 Notebooks
+
+### `01_EDA.ipynb`
+Covers the full analysis pipeline:
+- Simplified EDA (variable types, missing values, cardinality, class balance)
+- Special analysis of `pdays` variable
+- Evaluation strategy (train/test split, metric choice, inner CV)
+- KNN & Decision Trees (default + HPO)
+- Linear Models & SVMs (default + HPO)
+- Final model selection & evaluation on test set
+- Competition predictions
+
+### `02_predictions.ipynb` *(coming soon)*
+Loads `modelo_final.joblib` and `bank_competition.pkl`, runs predictions, saves `predicciones.csv`.
+
+---
+
+## 🌐 Streamlit App *(coming soon)*
+
+A web interface allowing bank managers to input client data and get a deposit subscription prediction in real time.
+
+```bash
+streamlit run mystreamlit.py
+```
+
+---
+
+## 📅 Progress
+
+- [x] Repository setup
+- [x] Data loaded
+- [ ] EDA completed
+- [ ] Evaluation strategy defined
+- [ ] KNN & Trees
+- [ ] Linear Models & SVMs
+- [ ] Final model selected & saved
+- [ ] Competition predictions generated
+- [ ] Streamlit app deployed
+- [ ] Open task completed
